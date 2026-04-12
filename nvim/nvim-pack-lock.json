@@ -29,6 +29,10 @@
       "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "monokai-pro-vim": {
+      "rev": "130e87e68e23167e8216eed72d883c35844bd3e4",
+      "src": "https://github.com/vinitkumar/monokai-pro-vim"
+    },
     "nvim-autopairs": {
       "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
       "src": "https://github.com/windwp/nvim-autopairs"
