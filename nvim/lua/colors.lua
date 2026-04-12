@@ -5,5 +5,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
             sp = "#98BB6C",               -- underline color
             undercurl = true,             -- use undercurl if available
         })
+        vim.api.nvim_set_hl(0, "@lsp.type.comment.cpp", {})
+        vim.api.nvim_set_hl(0, "@lsp.type.comment.c", {})
     end,
 })
