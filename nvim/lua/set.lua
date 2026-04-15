@@ -32,8 +32,4 @@ vim.opt.spell = true
 
 vim.g.mapleader = " "
 
-vim.o.autocomplete = true
-vim.o.complete = "o,.,w,b,u"
-vim.o.completeopt = "fuzzy,menuone,noselect,popup"
-
 vim.opt.background = vim.fn.getenv("ITERM_PROFILE") == "Light" and "light" or "dark"
