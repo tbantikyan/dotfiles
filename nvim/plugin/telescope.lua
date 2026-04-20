@@ -29,4 +29,5 @@ telescope.setup({
 vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Find files (telescope)" })
 vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Find files by string (telescope)" })
 vim.keymap.set("n", "<leader>pr", builtin.resume, { desc = "View previous search (telescope)" })
+vim.keymap.set("n", "<leader>pb", builtin.buffers, { desc = "View open buffers (telescope)" })
 vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Find repo. files (telescope)" })
