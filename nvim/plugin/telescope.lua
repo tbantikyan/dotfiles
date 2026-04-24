@@ -11,14 +11,29 @@ telescope.setup({
 	defaults = {
 		mappings = {
 			i = {
-				["<C-p>"] = function(prompt_bufnr)
-					actions.toggle_selection(prompt_bufnr)
-					actions.move_selection_previous(prompt_bufnr)
-				end,
 				["<C-n>"] = function(prompt_bufnr)
 					actions.toggle_selection(prompt_bufnr)
 					actions.move_selection_next(prompt_bufnr)
 				end,
+				["<C-N>"] = function(prompt_bufnr)
+					actions.toggle_selection(prompt_bufnr)
+					actions.move_selection_previous(prompt_bufnr)
+				end,
+				["<C-d>"] = function(prompt_bufnr)
+                    actions.delete_buffer(prompt_bufnr)
+                end,
+				["<C-j>"] = function(prompt_bufnr)
+                    actions.preview_scrolling_down(prompt_bufnr)
+                end,
+				["<C-k>"] = function(prompt_bufnr)
+                    actions.preview_scrolling_up(prompt_bufnr)
+                end,
+				["<C-h>"] = function(prompt_bufnr)
+                    actions.preview_scrolling_left(prompt_bufnr)
+                end,
+				["<C-l>"] = function(prompt_bufnr)
+                    actions.preview_scrolling_right(prompt_bufnr)
+                end,
 				["<Tab>"] = actions.move_selection_next,
 				["<S-Tab>"] = actions.move_selection_previous,
 			},
