@@ -1,23 +1,36 @@
 vim.pack.add({ "https://github.com/akinsho/toggleterm.nvim" })
 
-vim.keymap.set(
-	"n",
-	"<leader>tr",
-	"<cmd>ToggleTerm direction=horizontal<cr>",
-	{ desc = "Open terminal horizontally (toggleterm)" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>tv",
-	"<cmd>ToggleTerm direction=vertical<cr>",
-	{ desc = "Open terminal vertically (toggleterm)" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>tf",
-	"<cmd>ToggleTerm direction=float<cr>",
-	{ desc = "Open terminal floating (toggleterm)" }
-)
+-- Prepend command with number to open terminal with that ID
+local function custom_toggle(direction)
+	local terms = require("toggleterm.terminal")
+	local all_terms = terms.get_all(true)
+	local any_open = false
+
+	for _, term in ipairs(all_terms) do
+		if term:is_open() then
+			term:close()
+			any_open = true
+		end
+	end
+
+	if not any_open then
+		local id = vim.v.count
+		if id == 0 then
+			id = 1
+		end
+		require("toggleterm").toggle(id, nil, nil, direction)
+	end
+end
+
+vim.keymap.set("n", "<leader>tr", function()
+	custom_toggle("horizontal")
+end, { desc = "Toggle terminal horizontal" })
+vim.keymap.set("n", "<leader>tv", function()
+	custom_toggle("vertical")
+end, { desc = "Toggle terminal vertical" })
+vim.keymap.set("n", "<leader>tf", function()
+	custom_toggle("float")
+end, { desc = "Toggle terminal float" })
 
 -- terminal navigation mappings
 function _G.set_terminal_keymaps()
@@ -43,5 +56,9 @@ require("toggleterm").setup({
 		if term.direction == "horizontal" then
 			return 12
 		end
+	end,
+	on_open = function(term)
+		local statusline = "Terminal[" .. term.id .. "] "  .. " [-]"
+		vim.api.nvim_set_option_value("statusline", statusline, {win = term.window})
 	end,
 })
