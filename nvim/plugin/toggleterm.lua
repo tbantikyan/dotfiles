@@ -13,8 +13,11 @@ local function custom_toggle(direction)
 		end
 	end
 
-	if not any_open then
-		local id = vim.v.count
+    -- Command without a count should always just toggle off in the event that
+    -- a toggleterm buffer is already open. If there is a count, replace the
+    -- existing toggleterm buffer.
+	local id = vim.v.count
+	if not any_open or id ~= 0 then
 		if id == 0 then
 			id = 1
 		end
@@ -31,6 +34,12 @@ end, { desc = "Toggle terminal vertical" })
 vim.keymap.set("n", "<leader>tf", function()
 	custom_toggle("float")
 end, { desc = "Toggle terminal float" })
+vim.keymap.set("n", "<leader>td", function()
+	local terms = require("toggleterm.terminal")
+	for _, term in ipairs(terms.get_all(true)) do
+		term:shutdown()
+	end
+end, { desc = "Delete all toggleterm buffers" })
 
 -- terminal navigation mappings
 function _G.set_terminal_keymaps()
