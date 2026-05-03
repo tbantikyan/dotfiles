@@ -58,7 +58,8 @@ local function show_toggleterm_buffers()
 				local name = vim.api.nvim_buf_get_name(term.bufnr)
 				local pid = name:match("term://.*//(%d+):")
 				if pid then
-					local cmd = vim.fn.system("ps -o comm= --ppid " .. pid .. " | tail -n 1"):gsub("^%s*(.-)%s*$", "%1")
+                    local shell_cmd = string.format("ps -e -o ppid=,comm= | awk '$1 == %s {print $2}' | tail -n 1", pid)
+                    local cmd = vim.fn.system(shell_cmd):gsub("^%s*(.-)%s*$", "%1")
 					if cmd ~= "" then
 						return info .. " [" .. cmd .. "]"
 					end
