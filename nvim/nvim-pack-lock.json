@@ -68,10 +68,6 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
-    "spellwarn.nvim": {
-      "rev": "c98cfca978791cae3edaced7056bd340debee8fe",
-      "src": "https://github.com/ravibrock/spellwarn.nvim"
-    },
     "swift.nvim": {
       "rev": "7b1327d4c86a9a9a313102ce4d70786a971e7430",
       "src": "https://github.com/devswiftzone/swift.nvim"
