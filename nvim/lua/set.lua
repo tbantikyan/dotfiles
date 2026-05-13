@@ -1,3 +1,6 @@
+vim.opt.exrc = true
+vim.opt.secure = true
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -29,7 +32,9 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "120"
 
 vim.opt.spell = true
+vim.opt.spelllang = "en_us"
 vim.opt.spellsuggest = "best,20"
+vim.opt.spelloptions:append("camel")
 
 vim.g.mapleader = " "
 
