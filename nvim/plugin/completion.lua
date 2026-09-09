@@ -1,11 +1,16 @@
-vim.pack.add({ "https://github.com/saghen/blink.cmp" })
+vim.pack.add({
+	{
+		src = "https://github.com/saghen/blink.cmp",
+		version = vim.version.range("^1"),
+	},
+})
 require("blink.cmp").setup({
 	keymap = {
-        -- enter: accept completion
-        -- tab, shift-tab: cycle completions
-        -- space: open completion menu; within menu, open documentation
-        -- ctrl-e: close completion menu
-        -- ctrl-k: show signature
+		-- enter: accept completion
+		-- tab, shift-tab: cycle completions
+		-- space: open completion menu; within menu, open documentation
+		-- ctrl-e: close completion menu
+		-- ctrl-k: show signature
 		preset = "enter",
 		["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
 		["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
