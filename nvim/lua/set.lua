@@ -36,6 +36,8 @@ vim.opt.spelllang = "en_us"
 vim.opt.spellsuggest = "best,20"
 vim.opt.spelloptions:append("camel")
 
+vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
+
 vim.g.mapleader = " "
 
 vim.opt.background = vim.fn.getenv("ITERM_PROFILE") == "Light" and "light" or "dark"
