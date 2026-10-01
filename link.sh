@@ -12,9 +12,10 @@ link_file() {
     ln -sfn "$src" "$dst"
 }
 
-link_file ~/dotfiles/zsh-custom ~/.oh-my-zsh/custom
 link_file ~/dotfiles/nvim ~/.config/nvim
 link_file ~/dotfiles/kitty ~/.config/kitty
 
 mkdir -p ~/.config/tmux
 link_file ~/dotfiles/tmux.conf ~/.config/tmux/tmux.conf
+
+echo 'ZSH_CUSTOM="~/dotfiles/zsh-custom"' >> ~/.zshrc
