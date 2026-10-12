@@ -1,3 +1,4 @@
+vim.g.floaterm_giteditor = false
 vim.pack.add({ "https://github.com/voldikss/vim-floaterm" })
 
 local function custom_toggle(wintype)
